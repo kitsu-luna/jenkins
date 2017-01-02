@@ -1,12 +1,15 @@
 #!groovy
 node {
   stage('Build') {
-    echo "This is Build"
+    echo "From develop this is Build"
+   
   }
   stage('Test') {
-    echo "This is Test"
+    echo "From develop This is Test"
   }
   stage('Deploy') {
-    echo "This is Deploy"
+    if (currentBuild.result == "SUCCESS") {
+      echo "From develop this is Deploy"
+    }
   }
 }
